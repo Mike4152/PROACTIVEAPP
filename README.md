@@ -21,15 +21,9 @@ ProActiveTrack is a futuristic system health monitoring dashboard that provides 
 - Node.js 18.18.0 or later
 - npm or yarn
 
-### Installation
 
-1. Clone the repository:
-\`\`\`bash
-git clone https://github.com/yourusername/proactive-track.git
-cd proactive-track
-\`\`\`
 
-2. Install dependencies:
+1. Install dependencies:
 
 
 npm install
@@ -39,7 +33,7 @@ npm install
 yarn install
 
 
-3. Run the development server:
+2. Run the development server:
 
 
 npm run dev
