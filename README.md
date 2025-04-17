@@ -28,7 +28,7 @@ ProActiveTrack is a futuristic system health monitoring dashboard that provides 
 
 npm install
 
-# or
+ or
 
 yarn install
 
