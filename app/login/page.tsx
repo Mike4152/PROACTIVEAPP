@@ -31,7 +31,7 @@ export default function LoginPage() {
         setError("An error occurred during login. Please try again.");
       }
     } else {
-      setError("Invalid credentials.");
+      setError("Invalid credentials. The default username and password are admin/000000.");
     }
   };
 
