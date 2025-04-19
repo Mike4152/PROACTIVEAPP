@@ -1,9 +1,6 @@
 # ProActiveTrack
 
-USERNAME---admin
 
-
-PASSWORD---000000
 
 ProActiveTrack is a futuristic system health monitoring dashboard that provides real-time insights into your IT infrastructure.
 
@@ -20,6 +17,11 @@ ProActiveTrack is a futuristic system health monitoring dashboard that provides 
 - Administrative controls
 
 ## Getting Started
+
+USERNAME---admin
+
+
+PASSWORD---000000
 
 ### Prerequisites
 
