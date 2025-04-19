@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { useState } from "react"
-import { Search, Bell, Settings, User } from "lucide-react"
+import { Search, Bell, Settings, User, ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
@@ -13,6 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { usePathname, useRouter } from "next/navigation"
 
 export function DashboardHeader() {
   const [notifications] = useState([
@@ -21,15 +22,25 @@ export function DashboardHeader() {
     { id: 3, title: "Disk space running low", severity: "warning" },
   ])
 
+  const pathname = usePathname()
+  const router = useRouter()
+  const isDeviceDetailPage = pathname.startsWith("/devices/")
+
+  const handleBack = () => {
+    router.push("/")
+  }
+
   return (
     <div className="container mx-auto px-6 py-4">
       <div className="flex items-center justify-between">
-        <div className="relative w-64">
-          <Search className="absolute left-2 top-2.5 h-4 w-4 text-[#AAB1B7]" />
-          <Input
-            placeholder="Search devices..."
-            className="pl-8 bg-[#161B22] border-[#1E2430] text-white focus:border-[#3B82F6] focus:ring-[#3B82F6]"
-          />
+        <div className="flex items-center space-x-4">
+          <div className="relative w-64">
+            <Search className="absolute left-2 top-2.5 h-4 w-4 text-[#AAB1B7]" />
+            <Input
+              placeholder="Search devices..."
+              className="pl-8 bg-[#161B22] border-[#1E2430] text-white focus:border-[#3B82F6] focus:ring-[#3B82F6]"
+            />
+          </div>
         </div>
 
         <div className="flex items-center space-x-4">

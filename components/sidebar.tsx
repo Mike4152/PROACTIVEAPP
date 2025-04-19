@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { LayoutDashboard, Users, Bell, Settings, BarChart3, Menu, X, BrainCircuit } from "lucide-react"
+import { usePathname, useRouter } from "next/navigation"
+import { LayoutDashboard, Users, Bell, Settings, BarChart3, Menu, X, BrainCircuit, LogOut } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 
 // Update the navItems array to remove Device Details
 const navItems = [
@@ -18,6 +19,7 @@ const navItems = [
 
 export function Sidebar() {
   const pathname = usePathname()
+  const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
@@ -33,6 +35,13 @@ export function Sidebar() {
       window.removeEventListener("resize", checkIfMobile)
     }
   }, [])
+
+  const handleLogout = () => {
+    // Clear the authentication cookie
+    document.cookie = "isAuthenticated=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    // Redirect to login page
+    window.location.href = "/login";
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 bg-[#0D1117]/80 backdrop-blur-lg border-b border-[#1E2430]">
@@ -69,6 +78,14 @@ export function Sidebar() {
               {item.name}
             </Link>
           ))}
+          <Button
+            onClick={handleLogout}
+            variant="ghost"
+            className="ml-4 text-[#AAB1B7] hover:text-white hover:bg-[#1E2430]"
+          >
+            <LogOut className="mr-2 h-4 w-4" />
+            Logout
+          </Button>
         </nav>
 
         {/* Mobile menu button */}
@@ -107,6 +124,13 @@ export function Sidebar() {
                 {item.name}
               </Link>
             ))}
+            <button
+              onClick={handleLogout}
+              className="flex items-center px-3 py-2 text-sm rounded-md text-[#AAB1B7] hover:text-white hover:bg-[#1E2430]"
+            >
+              <LogOut className="mr-3 h-5 w-5" />
+              Logout
+            </button>
           </nav>
         </div>
       )}

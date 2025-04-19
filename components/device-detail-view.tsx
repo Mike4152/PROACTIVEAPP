@@ -42,6 +42,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { Checkbox } from "@/components/ui/checkbox"
+import { useRouter } from "next/navigation"
 
 // Mock device data
 const mockDevices = [
@@ -266,6 +267,7 @@ interface DeviceDetailViewProps {
 }
 
 export function DeviceDetailView({ deviceId }: DeviceDetailViewProps) {
+  const router = useRouter()
   const [searchTerm, setSearchTerm] = useState("")
   const [device, setDevice] = useState<any>(null)
 
@@ -311,11 +313,14 @@ export function DeviceDetailView({ deviceId }: DeviceDetailViewProps) {
   return (
     <>
       <div className="flex items-center mb-8">
-        <Link href="/devices" className="mr-4">
-          <Button variant="outline" size="icon">
-            <ArrowLeft className="h-4 w-4" />
-          </Button>
-        </Link>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => router.push("/")}
+          className="mr-4"
+        >
+          <ArrowLeft className="h-4 w-4" />
+        </Button>
         <div>
           <h1 className="text-3xl font-bold text-white">
             <span className="bg-gradient-to-r from-[#3B82F6] to-[#00F0FF] text-transparent bg-clip-text">

@@ -91,7 +91,7 @@ export function AIAssistantImproved() {
     } else if (lowerInput.includes("predict") || lowerInput.includes("forecast")) {
       return "Based on current trends, I predict you'll see an increase in memory-related issues in the Marketing department within the next 2 weeks. This is likely due to the recent deployment of new design software. Consider proactive memory upgrades for these workstations."
     } else {
-      return "I've analyzed your system data and everything appears to be operating within normal parameters. Is there a specific area you'd like me to investigate more deeply?"
+      return "I do not understand your request. Please try again."
     }
   }
 
